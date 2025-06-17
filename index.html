@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPass Edu - Cavite State University NFC Attendance System</title>
+    <link rel="icon" type="image/png" href="cvsu-logo.png">
+    <link rel="shortcut icon" type="image/png" href="cvsu-logo.png">
+    <link rel="apple-touch-icon" href="cvsu-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">        <div class="nav-container">            <div class="nav-brand">
+                <img src="cvsu-logo.png" alt="Cavite State University" class="brand-logo">
+                <span>DigiPass Edu</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#dashboard" class="nav-link active">Dashboard</a>
+                <a href="#attendance" class="nav-link">Attendance</a>
+                <a href="#students" class="nav-link">Students</a>
+                <a href="#access-logs" class="nav-link">Access Logs</a>
+                <a href="#reports" class="nav-link">Reports</a>
+                <a href="#settings" class="nav-link">Settings</a>
+            </div>
+            <div class="nav-profile">
+                <div class="profile-info">
+                    <span class="profile-name">Admin User</span>
+                    <span class="profile-role">Administrator</span>
+                </div>
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="section-header">
+                <h1>Dashboard Overview</h1>
+                <p>Real-time insights and monitoring of your NFC attendance system</p>
+            </div>
+
+            <!-- Quick Actions Bar -->
+            <div class="quick-actions">
+                <button class="quick-action-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Add Student</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Export Data</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-bell"></i>
+                    <span>Alerts</span>
+                </button>
+            </div>
+
+            <!-- Enhanced Stats Grid -->
+            <div class="enhanced-stats-grid">
+                <div class="enhanced-stat-card primary">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>1,247</h3>
+                        <p>Total Students</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar" style="width: 85%"></div>
+                        </div>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            +12 this week
+                        </span>
+                    </div>
+                    <div class="stat-chart">
+                        <div class="mini-chart">📈</div>
+                    </div>
+                </div>
+
+                <div class="enhanced-stat-card success">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>892</h3>
+                        <p>Present Today</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar" style="width: 71.5%"></div>
+                        </div>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            71.5% attendance
+                        </span>
+                    </div>
+                    <div class="attendance-ring">
+                        <svg viewBox="0 0 42 42" class="donut">
+                            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#e2e8f0" stroke-width="3"></circle>
+                            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#16a34a" stroke-width="3" stroke-dasharray="71.5 28.5" stroke-dashoffset="25"></circle>
+                        </svg>
+                        <div class="ring-text">71.5%</div>
+                    </div>
+                </div>
+
+                <div class="enhanced-stat-card info">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <div class="stat-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>1,456</h3>
+                        <p>Access Events</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar" style="width: 95%"></div>
+                        </div>
+                        <span class="stat-change neutral">
+                            <i class="fas fa-clock"></i>
+                            Today
+                        </span>
+                    </div>
+                    <div class="pulse-indicator">
+                        <div class="pulse-dot"></div>
+                        <span>Live</span>
+                    </div>
+                </div>
+
+                <div class="enhanced-stat-card warning">
+                    <div class="stat-header">
+                        <div class="stat-icon-wrapper">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-menu">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>3</h3>
+                        <p>Security Alerts</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar warning" style="width: 15%"></div>
+                        </div>
+                        <span class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i>
+                            Unauthorized attempts
+                        </span>
+                    </div>
+                    <div class="alert-badge">
+                        <i class="fas fa-exclamation"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Dashboard Grid -->
+            <div class="advanced-dashboard-grid">
+                <!-- Real-time Activity Feed -->
+                <div class="dashboard-widget activity-widget">
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Real-time Activity</h3>
+                        </div>
+                        <div class="widget-controls">
+                            <button class="widget-btn">
+                                <i class="fas fa-filter"></i>
+                            </button>
+                            <button class="widget-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="activity-timeline">
+                            <div class="timeline-item success">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="activity-header">
+                                        <strong>Jazz Thine Mark Lee</strong>
+                                        <span class="activity-time">2m ago</span>
+                                    </div>
+                                    <p>Successfully entered Main Building</p>
+                                    <div class="activity-meta">
+                                        <span class="location-tag">Main Building</span>
+                                        <span class="nfc-tag">NFC_001</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item success">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="activity-header">
+                                        <strong>Yuji Lowe</strong>
+                                        <span class="activity-time">5m ago</span>
+                                    </div>
+                                    <p>Successfully entered Classroom A-101</p>
+                                    <div class="activity-meta">
+                                        <span class="location-tag">Classroom A-101</span>
+                                        <span class="nfc-tag">NFC_002</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item danger">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="activity-header">
+                                        <strong>Unknown Tag</strong>
+                                        <span class="activity-time">12m ago</span>
+                                    </div>
+                                    <p>Failed access attempt at Library</p>
+                                    <div class="activity-meta">
+                                        <span class="location-tag danger">Library</span>
+                                        <span class="nfc-tag danger">NFC_999</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Analytics -->
+                <div class="dashboard-widget analytics-widget">
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <i class="fas fa-chart-area"></i>
+                            <h3>Attendance Analytics</h3>
+                        </div>
+                        <div class="widget-controls">
+                            <select class="period-selector">
+                                <option>Today</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="analytics-summary">
+                            <div class="analytics-item">
+                                <div class="analytics-value">94.2%</div>
+                                <div class="analytics-label">Average Attendance</div>
+                            </div>
+                            <div class="analytics-item">
+                                <div class="analytics-value">08:15</div>
+                                <div class="analytics-label">Peak Entry Time</div>
+                            </div>
+                            <div class="analytics-item">
+                                <div class="analytics-value">127</div>
+                                <div class="analytics-label">Late Arrivals</div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-placeholder modern">
+                                <i class="fas fa-chart-area"></i>
+                                <p>Interactive Attendance Chart</p>
+                                <div class="chart-bars">
+                                    <div class="bar" style="height: 60%"></div>
+                                    <div class="bar" style="height: 80%"></div>
+                                    <div class="bar" style="height: 95%"></div>
+                                    <div class="bar" style="height: 70%"></div>
+                                    <div class="bar" style="height: 85%"></div>
+                                    <div class="bar" style="height: 90%"></div>
+                                    <div class="bar" style="height: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Status -->
+                <div class="dashboard-widget status-widget">
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <i class="fas fa-server"></i>
+                            <h3>System Status</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot"></span>
+                            Online
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="status-grid">
+                            <div class="status-item">
+                                <div class="status-header">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>NFC Readers</span>
+                                </div>
+                                <div class="status-value online">12/12 Online</div>
+                                <div class="status-bar">
+                                    <div class="status-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-header">
+                                    <i class="fas fa-database"></i>
+                                    <span>Database</span>
+                                </div>
+                                <div class="status-value online">Healthy</div>
+                                <div class="status-bar">
+                                    <div class="status-progress" style="width: 98%"></div>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-header">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Server Load</span>
+                                </div>
+                                <div class="status-value warning">67%</div>
+                                <div class="status-bar">
+                                    <div class="status-progress warning" style="width: 67%"></div>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-header">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security</span>
+                                </div>
+                                <div class="status-value online">Protected</div>
+                                <div class="status-bar">
+                                    <div class="status-progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats Summary -->
+                <div class="dashboard-widget summary-widget">
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h3>Today's Summary</h3>
+                        </div>
+                        <div class="widget-controls">
+                            <button class="widget-btn active">
+                                <i class="fas fa-calendar-day"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="summary-metrics">
+                            <div class="metric-row">
+                                <div class="metric-icon">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </div>
+                                <div class="metric-data">
+                                    <div class="metric-value">1,247</div>
+                                    <div class="metric-label">Total Check-ins</div>
+                                </div>
+                                <div class="metric-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                    +5.2%
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <div class="metric-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="metric-data">
+                                    <div class="metric-value">8:14 AM</div>
+                                    <div class="metric-label">Average Entry Time</div>
+                                </div>
+                                <div class="metric-trend down">
+                                    <i class="fas fa-arrow-down"></i>
+                                    -2m
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <div class="metric-icon">
+                                    <i class="fas fa-user-times"></i>
+                                </div>
+                                <div class="metric-data">
+                                    <div class="metric-value">23</div>
+                                    <div class="metric-label">Absent Students</div>
+                                </div>
+                                <div class="metric-trend down">
+                                    <i class="fas fa-arrow-down"></i>
+                                    -8
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attendance Section -->
+        <section id="attendance" class="content-section">
+            <div class="section-header">
+                <h1>Attendance Management</h1>
+                <p>Monitor and manage student attendance records</p>
+            </div>
+
+            <div class="attendance-controls">
+                <div class="control-group">
+                    <input type="date" class="form-input" value="2025-06-18">
+                    <select class="form-select">
+                        <option>All Classes</option>
+                        <option>Class A</option>
+                        <option>Class B</option>
+                        <option>Class C</option>
+                    </select>
+                    <button class="btn-primary">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                <button class="btn-success">
+                    <i class="fas fa-download"></i> Export Report
+                </button>
+            </div>
+
+            <div class="attendance-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Check-in Time</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        <tr>                            <td>STU001</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">JL</div>
+                                    <span>Jazz Thine Mark Lee</span>
+                                </div>
+                            </td>
+                            <td>BSCS-2E</td>
+                            <td>08:15 AM</td>
+                            <td><span class="status-badge present">Present</span></td>
+                            <td>Main Building</td>
+                            <td>
+                                <button class="btn-icon" title="View Details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>                            <td>STU002</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">YL</div>
+                                    <span>Yuji Lowe</span>
+                                </div>
+                            </td>
+                            <td>BSCS-2E</td>
+                            <td>08:22 AM</td>
+                            <td><span class="status-badge present">Present</span></td>
+                            <td>Classroom A-101</td>
+                            <td>
+                                <button class="btn-icon" title="View Details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>                            <td>STU003</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">PN</div>
+                                    <span>Prince Carl Nagtalon</span>
+                                </div>
+                            </td>
+                            <td>BSCS-2E</td>
+                            <td>--</td>
+                            <td><span class="status-badge absent">Absent</span></td>
+                            <td>--</td>
+                            <td>
+                                <button class="btn-icon" title="View Details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Mark Present">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Students Section -->
+        <section id="students" class="content-section">
+            <div class="section-header">
+                <h1>Student Management</h1>
+                <p>Manage student profiles and NFC tags</p>
+            </div>
+
+            <div class="students-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search students..." class="search-input">
+                </div>
+                <button class="btn-primary">
+                    <i class="fas fa-plus"></i> Add Student
+                </button>
+            </div>
+
+            <div class="students-grid">                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar large">JL</div>
+                        <div class="student-status active">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>                    <div class="student-details">
+                        <h3>Jazz Thine Mark Lee</h3>
+                        <p>Student ID: STU001</p>
+                        <p>Class: BSCS-2E</p>
+                        <p>NFC Tag: <span class="nfc-tag">NFC_001</span></p>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-secondary">View Profile</button>
+                        <button class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar large">YL</div>
+                        <div class="student-status active">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>                    <div class="student-details">
+                        <h3>Yuji Lowe</h3>
+                        <p>Student ID: STU002</p>
+                        <p>Class: BSCS-2E</p>
+                        <p>NFC Tag: <span class="nfc-tag">NFC_002</span></p>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-secondary">View Profile</button>
+                        <button class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar large">PN</div>
+                        <div class="student-status inactive">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>                    <div class="student-details">
+                        <h3>Prince Carl Nagtalon</h3>
+                        <p>Student ID: STU003</p>
+                        <p>Class: BSCS-2E</p>
+                        <p>NFC Tag: <span class="nfc-tag">NFC_003</span></p>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-secondary">View Profile</button>
+                        <button class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar large">JC</div>
+                        <div class="student-status active">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>                    <div class="student-details">
+                        <h3>Justine Lawrence Coronel</h3>
+                        <p>Student ID: STU004</p>
+                        <p>Class: BSCS-2E</p>
+                        <p>NFC Tag: <span class="nfc-tag">NFC_004</span></p>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-secondary">View Profile</button>
+                        <button class="btn-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Logs Section -->
+        <section id="access-logs" class="content-section">
+            <div class="section-header">
+                <h1>Access Logs</h1>
+                <p>Monitor all NFC-based access events and security alerts</p>
+            </div>
+
+            <div class="logs-controls">
+                <div class="filter-group">
+                    <select class="form-select">
+                        <option>All Locations</option>
+                        <option>Main Building</option>
+                        <option>Library</option>
+                        <option>Classroom A-101</option>
+                    </select>
+                    <select class="form-select">
+                        <option>All Events</option>
+                        <option>Successful Access</option>
+                        <option>Failed Attempts</option>
+                        <option>Security Alerts</option>
+                    </select>
+                    <input type="date" class="form-input" value="2025-06-18">
+                </div>
+                <button class="btn-primary">Filter</button>
+            </div>
+
+            <div class="logs-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Student/Tag</th>
+                            <th>Location</th>
+                            <th>Event Type</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        <tr>
+                            <td>2025-06-18 08:15:23</td>
+                            <td>Jazz Thine Mark Lee (NFC_001)</td>
+                            <td>Main Building</td>
+                            <td>Entry</td>
+                            <td><span class="status-badge success">Success</span></td>
+                            <td>Normal access</td>
+                        </tr>
+                        <tr>
+                            <td>2025-06-18 08:22:15</td>
+                            <td>Yuji Lowe (NFC_002)</td>
+                            <td>Classroom A-101</td>
+                            <td>Entry</td>
+                            <td><span class="status-badge success">Success</span></td>
+                            <td>Normal access</td>
+                        </tr>
+                        <tr>
+                            <td>2025-06-18 09:45:33</td>
+                            <td>Unknown (NFC_999)</td>
+                            <td>Library</td>
+                            <td>Entry Attempt</td>
+                            <td><span class="status-badge danger">Failed</span></td>
+                            <td>Unregistered NFC tag</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="cvsu-logo.png" alt="Cavite State University" class="footer-logo">
+                <div>
+                    <h4>DigiPass Edu</h4>
+                    <p>Cavite State University</p>
+                    <p>Smart NFC Attendance System</p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2025 Cavite State University. All rights reserved.</p>
+                <p>Truth • Excellence • Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NFC Status Indicator -->
+    <div class="nfc-status" id="nfc-status">
+        <div class="nfc-indicator">
+            <i class="fas fa-wifi"></i>
+            <span>NFC Readers: Online</span>
+        </div>
+    </div>    <script src="script.js"></script>
+</body>
+</html>
